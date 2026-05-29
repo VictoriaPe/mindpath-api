@@ -1,4 +1,3 @@
-// server.js — Backend MindPath para Render.com
 require("dotenv").config();
 const express = require("express");
 const cors    = require("cors");
@@ -8,7 +7,6 @@ const { testConnection } = require("./config/db");
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
-// CORS abierto para todos los orígenes
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +17,7 @@ app.use("/api/dashboard",   require("./routes/dashboard"));
 app.use("/api/estudiantes", require("./routes/estudiantes"));
 
 app.get("/health", (req, res) => {
-  res.json({ ok: true, mensaje: "MindPath API funcionando ✅", timestamp: new Date() });
+  res.json({ ok: true, mensaje: "MindPath API funcionando ✅" });
 });
 
 app.get("/", (req, res) => {
